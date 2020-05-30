@@ -20,7 +20,7 @@ public class MovieManager {
 		
 		boolean check = false;
 
-		int insertCnt = 0;
+		int insertCnt = 0; 
 		int choice = 0;
 
 		while (true) {
