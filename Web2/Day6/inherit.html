@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="kor">
+<meta charset="UTF-8">
+<title>CSS 상속</title>
+	<style>
+		.inherit-test{
+			color:blue;
+			border:3px dashed #30f;
+			padding:20px;
+		}
+		
+		/*h1태그에 border, padding 상속받기*/
+		.inherit-test h1{
+			border:inherit;
+			padding:inherit;
+		}
+		
+		.inherit-test button{
+			color:inherit;
+		}
+		
+		.inherit-test p{
+			border:inherit;
+			padding:inherit;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="inherit-test">
+		<h1>Heading</h1>
+		<p>
+			Paragraph<strong>strong</strong>
+		</p>
+		<button>Button</button>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
