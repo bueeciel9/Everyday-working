@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+<title>반응형 개발</title>
+<style>
+	body{background:#fafafa;}
+	#wrap{width:1200px; margin:0 auto;}
+	/* 페이지 너비가 움직이기 때문에 %로 준다. */
+	header{width:100%; height:150px; background:#fff59d;}
+	aside{float:left; width:30%; height:700px; background:#039be5;}
+	section{float:left; width:70%; height:700px; background:#f44336;}
+	
+	/* clear는 float속성에서 발생할 수 있는 문제를 해결할 수 있도록 도와준다. */
+	footer{clear:both; width:100%; height:150px; background:#4db6ac;}
+	
+	@media (max-width:1220px){
+		#wrap{width:95%;}
+	}
+	
+	@media (max-width:768px){
+		#wrap{width:100%;}
+	}
+	
+	@media (max-width:480px){
+		#wrap{width:100%;}
+		header{height:300px;}
+		aside{float:none; width:100%; height:300px;}
+		section{float:none; width:100%; height:300px;}
+	}
+	
+</style>
+
+</head>
+<body>
+	<div id="wrap">
+		<header></header>
+		<aside></aside>
+		<section></section>
+		<footer></footer>
+	</div>
+</body>
+</html>
+
+
+
