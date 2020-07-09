@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스코프</title>
+</head>
+<body>
+	<script>
+		//for(j=0; j<10; j++){ : 전역
+		//for(var j=0; j<10; j++){ : 전역(var)
+		for(let j=0; j<10; j++){ //지역(let)
+			console.log('j', j)
+		}
+		console.log('탈출 후 j', j)
+	</script>
+</body>
+</html>
