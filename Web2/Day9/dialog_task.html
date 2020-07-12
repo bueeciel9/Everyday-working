@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>점수 현황</title>
+</head>
+<body>
+</body>
+<script>
+	//prompt()함수를 통해서 이름, 국어, 영어, 수학 점수를 입력 받고
+	//총점과 평균을 나타낸다.
+	
+	//출력 예)
+	//이름 : 김사과
+	//국어점수 : 90
+	//영어점수 : 80
+	//수학점수 : 70
+	//총점 : 240점
+	//평균 : 80점
+	//소수점 자르기 : 값.toFixed(자릿수) / 반올림 됨
+
+	var name = prompt("이름을 입력하세요")
+	var kor = Number(prompt("국어점수를 입력하세요"))
+	var eng = Number(prompt("영어점수를 입력하세요"))
+	var math = Number(prompt("수학점수를 입력하세요"))
+	var total = kor + eng + math
+	var avg = total / 3
+	
+	document.write("이름 : " + name + "<br>")
+	document.write("국어 점수 : " + kor + "점<br>")
+	document.write("영어 점수 : " + eng + "점<br>")
+	document.write("수학 점수 : " + math + "점<br>")
+	document.write("총점 : " + total + "점<br>")
+	document.write("평균 : " + avg.toFixed(2) + "점<br>")
+	
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
