@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 실습</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
+<link href="function_task.css" rel="stylesheet">
+<!-- 태그객체.value : input태그에 사용자가 입력한 값 -->
+<!-- "문자열".charAt(인덱스번호) : 해당 인덱스에 있는 문자 -->
+<!-- "문자열".indexOf(값) : 해당 값이 있는 인덱스 번호-->
+<!-- "문자열"[인덱스번호] : 해당 인덱스에 있는 문자 -->
+<!-- 변수 = "문자열".replace("기존값", "새로운 값") -->
+<!-- button태그 속성값 : onclick="함수명()" -->
+<style>
+		#round{
+			border:5px solid #ab47bc;
+			margin-left:150px;
+			width:50px;
+			height:50px;
+			background:#ffee58;
+			border-radius:50%;
+			text-align:center;
+			line-height:50px;
+			font-family:Black Han Sans;
+			font-size:1.5rem;
+		}
+</style>
+</head>
+<body>
+	<div id="round">1</div>
+	<fieldset>
+		<legend>숫자를 한글로 변경</legend>
+		<textarea id="result" rows="3" cols="40">결과 표시 부분</textarea><br>
+		<input type="text" id="num"><br>
+		<button onclick="getResult()">변경</button>
+	</fieldset>
+
+</body>
+<script>
+	function changeToHangle(number){
+		//엄격모드 작동
+		'use strict'
+		//숫자면 참
+		if(!isNaN(number)){
+			//전달받은 값을 문자열로 형변환
+			var data = number + "";
+			//hangle : 10칸 문자 배열
+			var hangle = "공일이삼사오육칠팔구";
+			//결과를 담을 변수
+			var result = "";
+			
+			//i는 지역변수(let)
+			//data의 길이만큼 반복
+			for(let i in data){
+				//전달받은 값에 0부터 하나씩 접근해서 hangle에 접근
+				//그러면 숫자가 알맞는 한글로 바뀜
+				result += hangle[data.charAt(i)];
+			}
+			return result;//undefined 혹은 "" 혹은 한글
+		}
+	}
+	
+	//DOM기능 작성
+	function getResult(){
+		'use strict'
+		
+		//input태그(id:num)에서 입력한 값을 가지고 온 후 input변수에 담는다.
+		var input = document.getElementById("num").value;
+		//가져온 입력받은 값을 changeToHangle()함수에 전달한다.
+		var result = changeToHangle(input);
+		
+		//결과를 표시하는 textArea(id:result)태그 객체를 가지고 온다.
+		const textAreaTag = document.getElementById("result")
+		//결과에 맞는 번호를 표시하는 div(id:round)태그 객체를 가지고 온다.
+		const divTag = document.getElementById("round");
+		
+		//undefined:숫자가 아닌 값 입력
+		//"" : 아무것도 입력하지 않았을 때
+		if(result == undefined || result == ""){
+			//div태그에 4를 작성한다.
+			divTag.innerHTML = "4";
+			//결과 표시 창(textArea)에 경고메세지를 표시한다.
+			textAreaTag.innerHTML = "숫자만 입력하세요.";
+		}else{
+			//숫자(혹은 마침표 하나)를 입력했을 때 들어오는 영역(정상일 때)
+			
+			//변경 전 result값
+			var temp = result;
+			
+			//마침표가 있다면 undefined로 표시 되고, 이를 "점"으로 변경해준다.
+			result = result.replace(undefined, "점");
+			
+			//변경이 되었을 때 참(점이 있을 때)
+			if(temp != result){
+				divTag.innerHTML = "2";
+			}else{
+				//변경된 점이 없을 때 들어오는 영역(점이 없을 때)
+				divTag.innerHTML = "3";
+			}
+			//결과를 textArea에 표시한다.
+			textAreaTag.innerHTML = result;
+		}
+	}
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
