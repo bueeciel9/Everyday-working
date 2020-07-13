@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 예제2</title>
+</head>
+<body>
+</body>
+<script>
+	function Triangle(b, h){
+		this.base = b;
+		this.height = h;
+		this.area = function(){
+			return b * h / 2;
+		};
+		console.log("이 도형은 ");
+		(function intro(){
+			console.log("삼각형 입니다.<br>")
+		})();
+	}
+	
+	var tri1 = new Triangle(15, 15);
+	console.log(tri1.base);
+	console.log(tri1.height);
+	console.log(tri1.area());
+	
+	var tri2 = new Triangle(25, 10);
+	console.log(tri2.base);
+	console.log(tri2.height);
+	console.log(tri2.area());
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

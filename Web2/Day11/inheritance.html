@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상속</title>
+</head>
+<body>
+</body>
+<script>
+	function Car(){
+		this.engineStart = function(){
+			return "열쇠로 시동 킴<br>";
+		};
+		this.engineStop = function(){
+			document.write("열쇠로 시동 끔<br>");
+		};
+	}
+	
+	//프로퍼티 추가
+	Car.prototype.brand = "Benz";
+	Car.prototype.color = "Black";
+	Car.prototype.price = 8000;
+	
+	var momCar = new Car();
+	document.write(momCar.brand);
+	document.write(momCar.engineStart());
+	momCar.engineStop();
+	
+	var superCar = Object.create(momCar);
+	superCar.brand = "ferrari";
+	superCar.color = "red";
+	superCar.price = 35000;
+	
+	superCar.openRoof = function(){
+		return "지붕 열림<br>";
+	}
+	superCar.closeRoof = function(){
+		document.write("지붕 닫힘<br>");
+	}
+	
+	superCar.engineStart = function(){
+		document.write("음성으로 시동 킴<br>")
+	}
+	
+	document.write(superCar.brand);
+	superCar.engineStart();
+	superCar.engineStop();
+	document.write(superCar.openRoof());
+	
+	
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

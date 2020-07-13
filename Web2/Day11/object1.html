@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 예제</title>
+</head>
+<body>
+</body>
+<script>
+	var cat = "나비";
+	var nabi = {name : cat, owner : "한동석", age : 1, weight : 3.788};
+	document.write(nabi.name + "<br>");
+	document.write(nabi.owner + "<br>");
+	document.write(nabi["age"] + "<br>");
+	document.write(nabi["weight"].toFixed(2) + "<br>");
+	document.write((nabi.family="러시안블루") + "<br>");
+	document.write(nabi);
+	
+	for(var i in nabi){
+		console.log(i, ':', nabi[i]);
+	}
+</script>
+</html>
+
+
+
+
