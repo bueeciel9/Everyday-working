@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 실습</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
+<link href="object_task.css" rel="stylesheet">
+</head>
+<body>
+	<fieldset>
+		<legend>자동차 주행</legend>
+		<textarea id="result" rows="2" cols="40">현재 상태 표시</textarea>
+		<img id="stat" src="출발전.png">
+		<input id="pw" onkeyup="actionEnter()" style="visibility:hidden;" value="비밀번호 입력">
+		
+		<button id="on" onclick="SuperCar.showInput()">시동 켜기</button>
+		<button id="off" onclick="SuperCar.engineStop()">시동 끄기</button>
+		<button onclick="history.go(0)">초기화</button>
+	</fieldset>
+</body>
+<script>
+	function actionEnter(){
+		if(window.event.keyCode == 13){
+			SuperCar.engineStart();
+		}
+	}
+	
+	function SuperCar(){
+		this.brand = "Ferrari";
+		this.color = "Red";
+		this.price = 35000;
+	}
+	
+	SuperCar.prototype.pw = prompt("자동차 초기 비밀번호 입력");
+	const result = document.getElementById("result");//textarea
+	
+	var police_cnt = 0;
+	var check = false;
+	
+	SuperCar.showInput = function(){
+		if(!check){
+			const inputTag = document.getElementById("pw");
+			inputTag.style.visibility = "visible";
+		}else{
+			result.innerHTML = "이미 켜져 있습니다.";
+		}
+	}
+	
+	SuperCar.engineStart = function(){
+		const img = document.getElementById("stat");
+		const inputTag = document.getElementById("pw");
+		var pw = inputTag.value;
+		
+		if(SuperCar.prototype.pw == pw){
+			img.src = "시동켜기.gif";
+			result.innerHTML = "시동 켜짐";
+			inputTag.style.visibility = "hidden";
+			
+			check = true;
+		}else{
+			police_cnt++;
+			result.innerHTML = "비밀번호 오류 : " + police_cnt + "회";
+			if(police_cnt == 3){
+				result.innerHTML = "경찰 출동";
+				img.src = "경찰.png";
+				inputTag.style.visibility = "hidden";
+				//document.getElementById("on").style.visibility = "hidden";
+				//document.getElementById("off").style.visibility = "hidden";
+				document.getElementById("on").style.display = "none";
+				document.getElementById("off").style.display = "none";
+			}
+		}
+	}
+	
+	SuperCar.engineStop = function(){
+		if(check){
+			const img = document.getElementById("stat");
+			img.src="시동끄기.gif";
+			result.innerHTML = "시동 꺼짐";
+			check = false;
+		}else{
+			result.innerHTML = "시동이 이미 꺼져있습니다.";
+		}
+	}
+	
+	
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

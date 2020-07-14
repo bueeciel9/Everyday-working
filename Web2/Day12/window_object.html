@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>window 객체 예제</title>
+</head>
+<body>
+</body>
+<script>
+	window.onload = function(){
+		window.setTimeout(function(){
+			var browser = window.open('http://www.naver.com', 'child', 'width=600, height=300', true);
+			//browser.close() 열린 브라우저 객체를 닫아준다.
+		}, 3000);
+	};
+</script>
+</html>
