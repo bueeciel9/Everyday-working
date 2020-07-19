@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클래스 이름을 이용한 선택</title>
+</head>
+<body>
+	<h1>클래스 이름을 이용한 선택</h1>
+	<ul>
+		<li class="odd">첫 번째 아이템!</li>
+		<li name="even">두 번째 아이템!</li>
+		<li class="odd">세 번째 아이템!</li>
+		<li name="even">네 번째 아이템!</li>
+		<li class="odd">다섯 번째 아이템!</li>
+	</ul>
+</body>
+<script>
+	var selectedItem = document.getElementsByClassName("odd");
+	var selectedName = document.getElementsByName("even");
+	
+	for(let i=0; i<selectedItem.length; i++){
+		selectedItem.item(i).style.color = "red"
+	}
+	
+	for(let i=0; i<selectedName.length; i++){
+		selectedName.item(i).style.color = "green"
+	}
+</script>
+</html>
+
+
+
+
+
+
+
+
+

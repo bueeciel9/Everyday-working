@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 실습</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
+<link href="function_task.css" rel="stylesheet">
+<style>
+		#round{
+			border:5px solid #ab47bc;
+			margin-left:150px;
+			width:50px;
+			height:50px;
+			background:#ffee58;
+			border-radius:50%;
+			text-align:center;
+			line-height:50px;
+			font-family:Black Han Sans;
+			font-size:1.5rem;
+		}
+</style>
+</head>
+<body>
+	<div id="round">1</div>
+	<fieldset>
+		<legend>숫자를 한글로 변경</legend>
+		<textarea id="result" rows="3" cols="40">결과 표시 부분</textarea><br>
+		<input type="text" id="num" ><br>
+		<button onclick="getResult()">변경</button>
+	</fieldset>
+
+</body>
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	//모든 페이지가 요청 되었을 때
+	$(document).ready(function(){
+		//id가 numm인 곳에서 키를 누르면
+		$("#num").keydown(function(key){
+			//13번(엔터)인지 검사 후
+			if(key.keyCode == 13){
+				//기능을 실행한다.
+				getResult();
+			}
+		})
+	})
+
+	function changeToHangle(number){
+		//엄격모드 작동
+		'use strict'
+		//숫자면 참
+		if(!isNaN(number)){
+			//전달받은 값을 문자열로 형변환
+			var data = number + "";
+			//hangle : 10칸 문자 배열
+			var hangle = "공일이삼사오육칠팔구";
+			//결과를 담을 변수
+			var result = "";
+			
+			//i는 지역변수(let)
+			//data의 길이만큼 반복
+			for(let i in data){
+				//전달받은 값에 0부터 하나씩 접근해서 hangle에 접근
+				//그러면 숫자가 알맞는 한글로 바뀜
+				result += hangle[data.charAt(i)];
+			}
+			return result;//undefined 혹은 "" 혹은 한글
+		}
+	}
+	
+	//DOM 기능 작성
+	function getResult(){
+		'use strict'
+		var input = $("#num").val();
+		var result = changeToHangle(input);
+		
+		const textAreaTag = $("#result")
+		const divTag = $("#round");
+		
+		if(result == undefined || result == ""){
+			divTag.text("4");
+			textAreaTag.text("숫자만 입력하세요.");
+		}else{
+			var temp = result;
+			result = result.replace(undefined, "점");
+			
+			if(temp != result){
+				divTag.text("2");
+			}else{
+				divTag.text("3");
+			}
+			textAreaTag.text(result);
+		}
+	}
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

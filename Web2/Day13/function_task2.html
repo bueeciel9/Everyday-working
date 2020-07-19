@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 실습2</title>
+<style>
+	table{
+		margin:0 auto;
+		text-align:center;
+		width:30%;
+		font-family:Gugi
+	}
+	
+	thead{
+		background:#fff9c4;
+	}
+	
+</style>
+</head>
+<body>
+	<table border="1">
+		<caption>요금표</caption>
+		<thead>
+			<tr>
+				<th>구분</th>
+				<th>요금</th>
+			</tr>
+		</thead>
+		<tr>
+			<td class="text">아동</td>
+			<td>무료</td>
+		</tr>
+		<tr>
+			<td class="text">청소년</td>
+			<td>2000원</td>
+		</tr>
+		<tr>
+			<td class="text">성인</td>
+			<td>5000원</td>
+		</tr>
+	</table>
+	<fieldset style="text-align:center; width:30%; margin:0 auto;">
+		<legend>구분</legend>
+		<input type="text" id="choice">
+		<button onclick="confirm()">확인</button>
+	</fieldset>
+</body>
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	/* $('선택자').parent() : 부모 노드 */
+
+	var tempTr;
+	var tempTd;
+	var tempText;
+	
+	function confirm(){
+		const input = $("#choice").val();
+		var check = false;
+		
+		if(tempTr != undefined){
+			tempTr.css('background', '#fff');
+			tempTd.text(tempText);
+		}
+		
+		$.each($(".text"), function(index, item){
+			if(item.innerHTML == input){
+				tempTr = $(this).parent();
+				tempTd = $(this);
+				tempText = item.innerHTML;
+				
+				$(this).text('★' + item.innerHTML);
+				$(this).parent().css('background', '#f44336');
+				check = true;
+			}
+		});
+		
+		if(!check){
+			alert("다시 시도하세요!");
+			history.go(0);
+		}
+	}
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TagName예제</title>
+</head>
+<body>
+	<h1>HTML 태그 이름을 이용한 선택</h1>
+	<ul>
+		<li>첫 번째 아이템!</li>
+		<li>두 번째 아이템!</li>
+		<li>세 번째 아이템!</li>
+		<li>네 번째 아이템!</li>
+		<li>다섯 번째 아이템!</li>
+	</ul>
+	
+</body>
+<script>
+	var selectedItem = document.getElementsByTagName("li");
+	for(var i=0; i<selectedItem.length; i++){
+		//selectedItem[i].style.color = "red";
+		selectedItem.item(i).style.color = "red";
+	}
+</script>
+</html>
+
+
+
+
+
+
